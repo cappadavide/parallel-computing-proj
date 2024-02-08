@@ -87,6 +87,6 @@ The proposed approach is as follows:
 -  Perform another horizontal broadcast of the blocks above the main diagonal.
 -  Multiply the new A block with the current B block.
 
-This algorithm needs to be iterated $\sqrt{number of blocks}$ times.
+This algorithm needs to be iterated $\sqrt{NumberOfBlocks}$ times.
 
 ![image](https://cdn.discordapp.com/attachments/1080216725599027364/1205167755263877191/image.png?ex=65d762ef&is=65c4edef&hm=bd34d66b494d9e382c157373eddca7680650959d00f8d8adf1ab21a1b19c1d0d&)
