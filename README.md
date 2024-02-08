@@ -10,19 +10,18 @@ The primary objective of this task was to devise an algorithm for computing the 
 ### Strategies Implemented
 Three distinct strategies were implemented to address the aforementioned problem, each of which involves concurrent operations:
 
-1. **Strategy I**: Each processor computes its own partial sum. At each step, every processor sends its partial sum to a predetermined processor designated to hold the total sum.
+1. **Strategy I**: Each processor computes its partial sum. At each step, every processor sends its partial sum to a predetermined processor designated to hold the total sum.
 
-2. **Strategy II**: Each processor computes its own partial sum. At each step, distinct pairs of processors communicate concurrently. In each pair, one processor sends its partial sum to the other for updating the sum. The resulting sum is stored in a single predetermined processor.
+2. **Strategy II**: Each processor computes its partial sum. At each step, distinct pairs of processors communicate concurrently. In each pair, one processor sends its partial sum to the other for updating the sum. The resulting sum is stored in a single predetermined processor.
 
-3. **Strategy III**: Each processor computes its own partial sum. At each step, distinct pairs of processors communicate concurrently. In each pair, processors exchange their partial sums. The resulting sum is stored in all processors.
+3. **Strategy III**: Each processor computes its partial sum. At each step, distinct pairs of processors communicate concurrently. In each pair, processors exchange their partial sums. The resulting sum is stored in all processors.
 
 The performance of the algorithms was assessed based on the following metrics:
 - **Execution Time**: The time taken to complete the summation task.
 - **Speed-up**: The ratio of the execution time on a single processor to that on multiple processors.
 - **Efficiency**: The ratio of speed-up to the number of processors utilized.
 The evaluation was conducted by varying the number of processors and the quantity of numbers to be summed. Performance measurements were recorded for each strategy under different configurations to analyze their scalability and efficiency.
-## Second task
-The problem addressed in this document is as follows:
+
 ## Second task
 The problem addressed in this document is as follows:
 
