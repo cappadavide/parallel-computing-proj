@@ -8,30 +8,29 @@ In particular, it is divided into 3 parts, each of which differs in difficulty.
 ## Second task
 The problem addressed in this document is as follows:
 
-### Parallel Computation of the Sum of N Numbers on a MIMD Parallel Computer
+### Calculation of the product between a matrix $M \in \mathbb{R}^{nxm}$ and a vector $x \in \mathbb{R}^{m}$  on a parallel computer of the MIMD type with p processors and shared memory.
 
 The task involves calculating the sum of N numbers (a0+a1+ … + an) on a parallel computer of MIMD type with p processors and distributed memory.
 
 On a single-processor computer, the sum is computed by performing N-1 additions one at a time in a predetermined order:
 
 ```plaintext
-sumTot := a0
-sumTot := sumTot + a1
-sumTot := sumTot + a2
-.
-.
-.
-sumTot := sumTot + aN-1
+for i := 0 to n-1 do
+  yi := 0
+  for j := 0 to n-1 do
+    yi := yi + aij * xj
+  endfor
+endfor
 ```
+where $y \in \mathbb{R}^{n}$ is the result vector
 
-Utilizing a parallel algorithm, it becomes possible to decompose the problem of size N into P subproblems of size N/P and solve them simultaneously on multiple computers. The only difficulty encountered was calculating the timing of parallel and sequential execution. This challenge, however, was successfully addressed by employing the appropriate MPI routines. To address the problem, OpenMP (Open MultiProcessing) was employed—a cross-platform API designed for creating parallel applications on shared memory systems. It is supported by various programming languages such as C/C++ and Fortran. OpenMP comprises a set of compilation directives, library routines, and environment variables that define its runtime behaviour.
-
-The parallel algorithm employed in the described scenario is derived from the sequential algorithm but involves a distribution of iterations of the outermost loop among the threads. This outer loop iterates over the rows of matrix M. Consequently, each thread will work on a block of k contiguous rows from the shared matrix M, determining k components of the resulting vector x.
+The shared memory, facilitated through the use of threads, undoubtedly streamlines the resolution of the problem, as there is no need to distribute data through explicit communication mechanisms as is the case with separate processes. However, it is imperative to employ synchronization mechanisms to prevent unexpected results or issues. 
+To address the problem, OpenMP (Open MultiProcessing) was employed—a cross-platform API designed for creating parallel applications on shared memory systems. It is supported by various programming languages such as C/C++ and Fortran. OpenMP comprises a set of compilation directives, library routines, and environment variables that define its runtime behavior.
 
 ## Third task
 The problem addressed in this document is as follows:
 
-### Parallel Computation of Matrix Product on a MIMD Parallel Computer
+### Calculation of the product between a matrix  $A \in \mathbb{R}^{nxn}$ and $B \in \mathbb{R}^{nxn}$ on a parallel computer of the MIMD type with p processors and distributed memory.
 
 The sequential algorithm for solving this problem is as follows:
 
@@ -48,6 +47,8 @@ endfor
 Thanks to a parallel algorithm, it becomes possible to decompose the problem of size N into P-independent subproblems of size N/P and solve them simultaneously on multiple computers.
 
 One approach is to decompose the problem into square blocks, combining the decomposition into row blocks with that into column blocks.
+
+\\foto: Suddivisione matrice 4x4 in blocchi 2x2 da distribuire a 4 processi
 
 This type of decomposition is utilized by the Fox algorithm, also known as Broadcast-Multiply-Roll, which will be detailed in the following sections.
 
