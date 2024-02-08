@@ -65,13 +65,13 @@ Thanks to a parallel algorithm, it becomes possible to decompose the problem of 
 
 One approach is to decompose the problem into square blocks, combining the decomposition into row blocks with that into column blocks.
 
-\\foto: Suddivisione matrice 4x4 in blocchi 2x2 da distribuire a 4 processi
+![image](https://cdn.discordapp.com/attachments/1080216725599027364/1205169990051958825/image.png?ex=65d76504&is=65c4f004&hm=eeaa66279b1fef87b9937afc42c7969faea4495b28f34eae3b49af6e4baf957e&)
 
 This type of decomposition is utilized by the Fox algorithm, also known as Broadcast-Multiply-Roll, which will be detailed in the following sections.
 
 The algorithm is founded on the concept that goes beyond mere decomposition into square blocks. It also entails a virtual arrangement of processes within a two-dimensional grid to facilitate the resolution of the given problem.
 
-//foto: Distribuzione dei dati
+![image](https://cdn.discordapp.com/attachments/1080216725599027364/1205167223203696670/image.png?ex=65d76270&is=65c4ed70&hm=e3e17c1ebaa0e02ab3a53a4df4c13175e285980687229522e8a5b008a13702fc&)
 
 The grid created for the given problem has a dimension equal to (p, p), where p represents the number of processes. It incorporates periodicity along both dimensions to facilitate smoother communication between processes located at opposite positions.
 
@@ -89,4 +89,4 @@ The proposed approach is as follows:
 
 This algorithm needs to be iterated sqrt(number of blocks) times.
 
-\\foto: Distribuzione matrice 6x6
+![image](https://cdn.discordapp.com/attachments/1080216725599027364/1205167755263877191/image.png?ex=65d762ef&is=65c4edef&hm=bd34d66b494d9e382c157373eddca7680650959d00f8d8adf1ab21a1b19c1d0d&)
