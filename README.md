@@ -58,9 +58,9 @@ The algorithm is founded on the concept that goes beyond mere decomposition into
 
 The grid created for the given problem has a dimension equal to (p, p), where p represents the number of processes. It incorporates periodicity along both dimensions to facilitate smoother communication between processes located at opposite positions.
 
-Each process is then assigned coordinates to determine its position within the grid, establishing an intrinsic connection with the problem at hand. Specifically, processor 𝑃_ij will be assigned the blocks 𝐴_ij and 𝐵_ij.
+Each process is then assigned coordinates to determine its position within the grid, establishing an intrinsic connection with the problem at hand. Specifically, processor $𝑃_{ij}$ will be assigned the blocks $A_{ij}$ and $B_{ij}$.
 
-The desired condition is for each processor 𝑃_ij to compute the block 𝐶_ij of the resulting matrix C. However, with the currently possessed blocks, processor 𝑃_ij cannot calculate this particular block of C.
+The desired condition is for each processor $𝑃_{ij}$ to compute the block $C_{ij}$ of the resulting matrix C. However, with the currently possessed blocks, processor $𝑃_{ij}$ cannot calculate this particular block of C.
 
 The proposed approach is as follows:
 -  Identify the diagonal (starting from the main diagonal).
